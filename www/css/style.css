@@ -7,3 +7,20 @@
 h2 {
   text-align: center;
 }
+
+
+#canvasContainer {
+    position: relative;
+    width: 300px;
+}
+
+#canvas {
+    z-index: 1;
+}
+
+#prizePointer {
+    position: absolute;
+    left: 165px;
+    top: 10px;
+    z-index: 999;
+}

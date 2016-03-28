@@ -8,9 +8,12 @@
       link: function(scope, elem, attrs){
         scope.canvas = elem.find('myCanvas')[0];
 
+        var counter = 0;
+
         var spinWheel = new Winwheel({
          'canvasId' : 'myCanvas',
          'numSegments': 10,
+         'outerRadius' : 170,
          'lineWidth': 3,
          'segments': [
            {'fillStyle' : '#eae56f', 'text' : 'Episode 1'},
@@ -32,7 +35,13 @@
        });
 
        scope.spin = function(){
-         return spinWheel.startAnimation();
+         if(counter === 0){
+           counter = 1;
+          return spinWheel.startAnimation();
+         } else {
+          spinWheel.rotationAngle = 0;     // Re-set the wheel angle to 0 degrees.
+          return spinWheel.startAnimation();
+         }
        };
 
       }
