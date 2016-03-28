@@ -15,12 +15,16 @@
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
+    <!-- your app's js -->
+    <script src='js/Winwheel.js'></script>
+    <script src='js/TweenMax.js'></script>
+    <script src="js/app.js"></script>
+    <script src="js/wheel.directive.js"></script>
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
-    <!-- your app's js -->
-    <script src='js/Winwheel.js'></script>
-    <script src="js/app.js"></script>
+
+
   </head>
   <body ng-app="starter">
 
@@ -29,19 +33,11 @@
         <h1 class="title">Game of Thrones Roulette</h1>
       </ion-header-bar>
       <ion-content>
-        <p>Can't decide which episode to watch?  Spin the Wheel!</p>
-        <canvas id='myCanvas' width='880' height='300'>
-            Canvas not supported, use another browser.
-        </canvas>
-        <script>
-            var theWheel = new Winwheel({
-              'canvasId' : 'myCanvas',
-              'numSegments': 12,
-              'fillStyle' : '#e7706f',
-              'lineWidth': 3
-            });
-        </script>
-      </ion-content>
+        <h2>Can't decide which episode to watch?</h2>
+          <script>console.log('hi!!');</script>
+          <button class="button button-full button-positive" ng-click="spin()">Spin The Wheel!</button>
+          <wheel></wheel>
+        </ion-content>
     </ion-pane>
   </body>
 </html>
