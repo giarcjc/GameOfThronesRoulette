@@ -7,8 +7,8 @@
       templateUrl: 'js/wheel.tmpl.html',
       link: function(scope, elem, attrs){
         scope.canvas = elem.find('myCanvas')[0];
-
-        var counter = 0;
+        console.log(this);
+        var counter = false;
 
         var spinWheel = new Winwheel({
          'canvasId' : 'myCanvas',
@@ -35,12 +35,12 @@
        });
 
        scope.spin = function(){
-         if(counter === 0){
-           counter = 1;
-          return spinWheel.startAnimation();
+         if(!counter){
+           counter = true;
+           return spinWheel.startAnimation();
          } else {
-          spinWheel.rotationAngle = 0;     // Re-set the wheel angle to 0 degrees.
-          return spinWheel.startAnimation();
+           spinWheel.rotationAngle = 0;     // Re-set the wheel angle to 0 degrees.
+           return spinWheel.startAnimation();
          }
        };
 
