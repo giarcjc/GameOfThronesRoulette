@@ -20,6 +20,8 @@
          }
        };
 
+
+
        spinWheel = new Winwheel({
         'canvasId' : 'myCanvas',
         'numSegments': 10,
@@ -40,10 +42,20 @@
         'animation' : {
           'type' : 'spinToStop',
           'duration' : 5,
-          'spins' : 8
+          'spins' : 8,
+          'callbackFinished' : 'this.target.result()'
          }
        });
 
+       spinWheel.result = function(){
+         var winningSegmentNumber = spinWheel.getIndicatedSegmentNumber();
+         for (var x = 1; x < spinWheel.segments.length; x++){
+           spinWheel.segments[x].fillStyle = 'gray';
+         }
+         spinWheel.segments[winningSegmentNumber].fillStyle = 'yellow';
+         spinWheel.draw();
+         console.log('result is ' + winningSegmentNumber);
+       }
 
       }
     }
